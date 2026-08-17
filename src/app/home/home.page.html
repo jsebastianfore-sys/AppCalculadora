@@ -1,0 +1,60 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Calculadora </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" class="display">{{display}}</ion-col>
+    </ion-row>
+    <ion-row>
+      @for(btn of buttons; track btn.value){
+      <ion-col size="3" class="col-test" (click)="onPress(btn)"
+        >{{btn.label}}</ion-col
+      >
+
+      }
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" class="display" (click)="equal()">=</ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+ -->
+
+<ion-header [translucent]="true" class="calculator__header">
+  <ion-toolbar>
+    <ion-title class="calculator__title"> Calculadora </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="calculator">
+  <div class="calculator__container">
+    <div class="calculator__card">
+      <div class="calculator__display">{{ display }}</div>
+
+      <ion-grid class="calculator__grid">
+        <ion-row>
+          @for(btn of buttons; track btn.value) {
+
+          <ion-col size="3" class="calculator__col">
+            <button class="calculator__button" (click)="onPress(btn)">
+              {{ btn.label }}
+            </button>
+          </ion-col>
+
+          }
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12">
+            <button class="calculator__equal" (click)="equal()">=</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>
