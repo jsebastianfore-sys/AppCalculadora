@@ -36,25 +36,15 @@
     <div class="calculator__card">
       <div class="calculator__display">{{ display }}</div>
 
-      <ion-grid class="calculator__grid">
-        <ion-row>
-          @for(btn of buttons; track btn.value) {
+      <div class="calculator__grid">
+        @for(btn of buttons; track btn.value) {
+        <button class="calculator__button" (click)="onPress(btn)">
+          {{ btn.label }}
+        </button>
+        }
 
-          <ion-col size="3" class="calculator__col">
-            <button class="calculator__button" (click)="onPress(btn)">
-              {{ btn.label }}
-            </button>
-          </ion-col>
-
-          }
-        </ion-row>
-
-        <ion-row>
-          <ion-col size="12">
-            <button class="calculator__equal" (click)="equal()">=</button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+        <button class="calculator__equal" (click)="equal()">=</button>
+      </div>
     </div>
   </div>
 </ion-content>
