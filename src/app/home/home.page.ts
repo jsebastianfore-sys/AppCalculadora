@@ -22,6 +22,11 @@ export class HomePage {
   constructor() {}
 
   buttons: CalcButton[] = [
+    { label: 'C', value: 'clear', type: 'action' },
+    { label: '0', value: '0', type: 'number' },
+    { label: '.', value: '.', type: 'number' },
+    { label: '/', value: '/', type: 'operator' },
+
     {
       label: '7',
       value: '7',
