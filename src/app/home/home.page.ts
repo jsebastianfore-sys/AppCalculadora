@@ -91,11 +91,22 @@ export class HomePage {
 
   onPress(btn: CalcButton) {
     if (btn.type === 'number') {
-      this.display = this.display == '0' ? btn.value : this.display + btn.value;
-    } else {
+      if (btn.value === '.') {
+        if (!this.display.includes('.')) {
+          this.display += '.';
+        }
+      } else {
+        this.display =
+          this.display === '0' ? btn.value : this.display + btn.value;
+      }
+    } else if (btn.type === 'operator') {
       this.operand = this.display;
       this.operator = btn.value;
       this.display = '0';
+    } else if (btn.type === 'action' && btn.value === 'clear') {
+      this.display = '0';
+      this.operand = '';
+      this.operator = '';
     }
   }
 
@@ -117,6 +128,12 @@ export class HomePage {
         break;
 
       case '/':
+        if (b === 0) {
+          this.display = 'Error';
+          this.operand = '';
+          this.operator = '';
+          return;
+        }
         result = a / b;
         break;
 
